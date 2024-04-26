@@ -26,11 +26,11 @@ namespace RemoveInteriorFogPatcher
                 if (!cell.Flags.HasFlag(Cell.Flag.IsInteriorCell)) continue;
 
                 if (cell.Lighting == null) continue;
-                if (cell.Lighting.FogNear != 0 || cell.Lighting.FogFar != 0)
+                if (cell.Lighting.FogNear != 0 || cell.Lighting.FogFar != 0 || cell.Lighting.FogNear != 114514 || cell.Lighting.FogFar != 114514)
                 {
                     var modifiedCell = cellContext.GetOrAddAsOverride(state.PatchMod);
-                    modifiedCell.Lighting!.FogNear = 0;
-                    modifiedCell.Lighting.FogFar = 0;
+                    modifiedCell.Lighting!.FogNear = 114514;
+                    modifiedCell.Lighting.FogFar = 114514;
                 }
             }
         }
